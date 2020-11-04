@@ -74,28 +74,31 @@ class RomanDecimalConverter {
   }
 
   int rom2dec(String value) {
-    if (_containsUnexpectedCharacter(value)) {
-      throw ArgumentException("Unexpected character at input");
-    } else if (!_isBefore(value)) {
-      throw ArgumentException(
-          "Invalid position! Check for I not before V or X, X not before L or C, C not before D or M");
-    } else if (_isIXCMRepeatedMoreThanThreeTimes(value)) {
-      throw ArgumentException(
-          "Too many repeated characters! I, X, C and M must not exceed three in a row");
-    } else {
-      List<int> convertedIndividualValues = _splitInputAndMapValues(value);
-
-      int total = 0;
-
-      for (int i = 0; i < convertedIndividualValues.length; i++) {
-        if ((i < convertedIndividualValues.length - 1) &&
-            (convertedIndividualValues[i] < convertedIndividualValues[i + 1])) {
-          total -= convertedIndividualValues[i];
-        } else {
-          total += convertedIndividualValues[i];
+    if (value.isNotEmpty) {
+      if (_containsUnexpectedCharacter(value)) {
+        throw ArgumentException("Unexpected character at input");
+      } else if (!_isBefore(value)) {
+        throw ArgumentException(
+            "Invalid position! Check for I not before V or X, X not before L or C, C not before D or M");
+      } else if (_isIXCMRepeatedMoreThanThreeTimes(value)) {
+        throw ArgumentException(
+            "Too many repeated characters! I, X, C and M must not exceed three in a row");
+      } else {
+        List<int> convertedIndividualValues = _splitInputAndMapValues(value);
+        int total = 0;
+        for (int i = 0; i < convertedIndividualValues.length; i++) {
+          if ((i < convertedIndividualValues.length - 1) &&
+              (convertedIndividualValues[i] <
+                  convertedIndividualValues[i + 1])) {
+            total -= convertedIndividualValues[i];
+          } else {
+            total += convertedIndividualValues[i];
+          }
         }
+        return total;
       }
-      return total;
+    } else {
+      return 0;
     }
   }
 }
