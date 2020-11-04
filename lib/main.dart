@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:roman2decimal/app/modules/home/cubit/decimal_cubit.dart';
-import 'package:roman2decimal/app/utils/roman_decimal_converter.dart';
 
+import 'app/modules/home/cubit/decimal_cubit.dart';
 import 'app/modules/home/pages/home_page.dart';
+import 'app/utils/roman_decimal_converter.dart';
 
 void main() {
   runApp(MyApp());

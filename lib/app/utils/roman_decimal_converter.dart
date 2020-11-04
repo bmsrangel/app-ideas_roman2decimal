@@ -1,4 +1,4 @@
-import 'package:roman2decimal/app/shared/exceptions/argument_exception.dart';
+import '../shared/exceptions/argument_exception.dart';
 
 class RomanDecimalConverter {
   RegExp _notRomanInput = RegExp(r"[^ivxlcdm]", caseSensitive: false);

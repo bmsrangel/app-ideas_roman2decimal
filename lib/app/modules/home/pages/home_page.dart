@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_icons/flutter_icons.dart';
-import 'package:roman2decimal/app/modules/home/cubit/decimal_cubit.dart';
+import '../cubit/decimal_cubit.dart';
 
 class HomePage extends StatefulWidget {
   @override
